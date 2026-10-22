@@ -7,6 +7,7 @@
     <title>My Personal Page</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 
 <body>
@@ -15,15 +16,221 @@
     </header>
 
     <main class="winter-page">
-        <img
-            class="winter-background"
-            src="assets/images/snowy_wallpaper.png"
-            alt=""
-        >
+
+        <div class="winter-scene">
+            <img
+                class="winter-background"
+                src="assets/images/snowy_wallpaper.png"
+                alt=""
+            >
+            <a
+                class="door-link"
+                href="projects/robo-advisor.html"
+                aria-label="로보어드바이저 프로젝트 보기"
+            >
+                <!-- 뒤쪽: 직접 그린 애니메이션 -->
+                <img
+                    class="door-animation"
+                    id="door-image"
+                    src="assets/images/door1.png"
+                    alt=""
+                >
+
+                <!-- 앞쪽: 움직이지 않는 문틀과 눈 -->
+                <img
+                    class="door-frame"
+                    src="assets/images/doorframe.png"
+                    alt=""
+                >
+            </a>
+        </div>
+
+        
+
+        <section class="profile-section" id="profile">
+            <div class="profile-box">
+
+                <!-- 언어 선택 버튼 -->
+                <div class="language-switch" role="group" aria-label="프로필 언어">
+                <button type="button" data-lang="ko" aria-pressed="false">
+                    KR
+                </button>
+                <span aria-hidden="true">/</span>
+                <button type="button" data-lang="en" aria-pressed="true">
+                    EN
+                </button>
+                </div>
+
+                <!-- 영어 프로필 -->
+                <div class="profile-content" lang="en">
+                <h2>LEE MOONJEONG</h2>
+                <a href="https://github.com/Dlans00">GitHub · Dlans00</a>
+                <p>Email: lee.moonjeong@gmail.com</p>
+
+                <hr>
+
+                <h3>EDUCATION</h3>
+                <p>
+                    <strong>Sogang University</strong><br>
+                    Primary Major: Computer Science and Engineering<br>
+                    Expected Graduation: August 2027<br>
+                </p>
+
+                <hr>
+
+                <h3>SKILLS</h3>
+                <ul>
+                    <li><strong>Languages:</strong> C, C++ · Python (Basic)</li>
+                    <li><strong>Backend:</strong> FastAPI · Django, Spring (Coursework)</li>
+                    <li><strong>Frontend:</strong> HTML, CSS (Basic)</li>
+                    <li><strong>Database:</strong> MySQL, SQL</li>
+                    <li><strong>DevOps:</strong> Docker, Kubernetes/K3s, Jenkins</li>
+                    <li><strong>Monitoring:</strong> Prometheus, Grafana, Loki</li>
+                    <li><strong>Testing &amp; Quality:</strong> Pytest, JMeter, SonarQube</li>
+                    <li><strong>AI:</strong> GPT/LLM Integration, PPO, RAG, AI–DevOps Integration</li>
+                    <li><strong>Tools:</strong> Git, GitHub, DBeaver</li>
+                </ul>
+                <p>
+                    <strong>Linux Development:</strong>
+                    Security labs, operating systems coursework, DebugMate,
+                    and computer lab courses
+                </p>
+
+                <hr>
+
+                <h3>PROJECTS</h3>
+                <ul>
+                    <li><strong>FunnyPenny:</strong> Classroom economy role-playing education platform</li>
+                    <li><strong>DebugMate:</strong> GPT/LLM-integrated debugging assistant for Linux</li>
+                    <li><strong>AI Robo-Advisor:</strong> Portfolio management using PPO and agentic RAG</li>
+                    <li><strong>Campus Information Service:</strong> Crawling, search, recommendations, and DevOps</li>
+                    <li><strong>Automotive Database:</strong> MySQL modeling, normalization, and SQL implementation</li>
+                    <li><strong>Systems Coursework:</strong> Pintos OS and Flex/Bison compiler implementation</li>
+                </ul>
+
+                <hr>
+
+                <h3>AWARDS</h3>
+                <p>
+                    <strong>Encouragement Award</strong><br>
+                    Sogang University Capstone Design Competition
+                </p>
+
+                <hr>
+
+                <h3>ACTIVITIES</h3>
+                <p>
+                    <strong>LikeLion University · 12th Cohort</strong><br>
+                    Central Hackathon Participant
+                </p>
+                <p>
+                    <strong>Korea Computer Congress (KCC)</strong><br>
+                    Paper Competition Participant
+                </p>
+
+                <hr>
+
+                <h3>RELEVANT COURSEWORK</h3>
+                <p>
+                    Information Security · DevOps · Operating Systems<br>
+                    Compilers · Databases · Capstone Design
+                </p>
+                </div>
+
+                <!-- 한국어 프로필 -->
+                <div class="profile-content" lang="ko" hidden>
+                <h2>이문정</h2>
+                <a href="https://github.com/Dlans00">GitHub · Dlans00</a>
+                <p>이메일: lee.moonjeong@gmail.com</p>
+                <hr>
+
+                <h3>학력</h3>
+                <p>
+                    <strong>서강대학교</strong><br>
+                    제1전공: 컴퓨터공학<br>
+                    2027년 8월 졸업 예정<br>
+                </p>
+
+                <hr>
+
+                <h3>언어·기술</h3>
+                <ul>
+                    <li><strong>언어:</strong> C, C++ · Python 기초</li>
+                    <li><strong>백엔드:</strong> FastAPI · Django, Spring 학습 경험</li>
+                    <li><strong>프론트엔드:</strong> HTML, CSS 기초</li>
+                    <li><strong>데이터베이스:</strong> MySQL, SQL</li>
+                    <li><strong>DevOps:</strong> Docker, Kubernetes/K3s, Jenkins</li>
+                    <li><strong>모니터링:</strong> Prometheus, Grafana, Loki</li>
+                    <li><strong>테스트·품질 관리:</strong> Pytest, JMeter, SonarQube</li>
+                    <li><strong>AI:</strong> GPT·LLM 연동, PPO, RAG, DevOps와 AI 연동</li>
+                    <li><strong>도구:</strong> Git, GitHub, DBeaver</li>
+                </ul>
+                <p>
+                    <strong>Linux 개발 경험:</strong>
+                    해킹 및 정보보안, 운영체제, 디버그메이트, 컴퓨터실습 수업
+                </p>
+
+                <hr>
+
+                <h3>주요 프로젝트</h3>
+                <ul>
+                    <li><strong>퍼니페니:</strong> 학급 경제 롤플레잉 교육 서비스</li>
+                    <li><strong>디버그메이트:</strong> Linux용 GPT·LLM 연동 디버깅 지원 도구</li>
+                    <li><strong>AI 로보어드바이저:</strong> PPO와 에이전틱 RAG 기반 투자 포트폴리오 서비스</li>
+                    <li><strong>학교 정보 검색·추천 서비스:</strong> 크롤링, 검색·추천 및 DevOps 환경 구성</li>
+                    <li><strong>자동차 회사 데이터베이스:</strong> MySQL 모델링, 정규화 및 SQL 구현</li>
+                    <li><strong>시스템 전공 프로젝트:</strong> Pintos 운영체제 및 Flex/Bison 컴파일러 구현</li>
+                </ul>
+
+                <hr>
+
+                <h3>수상</h3>
+                <p>
+                    <strong>장려상</strong><br>
+                    서강대학교 캡스톤 경진대회
+                </p>
+
+                <hr>
+
+                <h3>활동</h3>
+                <p>
+                    <strong>멋쟁이사자처럼 대학 12기</strong><br>
+                    중앙해커톤 참가
+                </p>
+                <p>
+                    <strong>한국컴퓨터종합학술대회(KCC)</strong><br>
+                    논문대회 참가
+                </p>
+
+                <hr>
+
+                <h3>주요 수강 과목</h3>
+                <p>
+                    해킹 및 정보보안 · DevOps · 운영체제<br>
+                    컴파일러 · 데이터베이스 · 캡스톤 설계
+                </p>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <footer>
-    </footer>
+    <div class="snow-effect" aria-hidden="true"></div>
+
+    <div class="scroll-hint" id="scroll-hint">
+      <span class="scroll-hint-label">SCROLL DOWN</span>
+
+      <svg
+        class="scroll-hint-arrow"
+        width="20"
+        height="24"
+        viewBox="0 0 24 28"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="M5 6L12 13L19 6M5 14L12 21L19 14" />
+      </svg>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
