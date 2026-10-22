@@ -6,17 +6,16 @@
 }
 
 body {
-
+    background-color: #b5b9ed;
 }
 
-header {
-
+.winter-page {
+    position: relative;
 }
 
-main {
-
+.winter-background {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
-footer {
-
-}
