@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     profileObserver.observe(profileBox);
   }
   
-        const doorLink = document.querySelector(".door-link");
+    const doorLink = document.querySelector(".door-link");
     const doorImage = document.querySelector("#door-image");
 
     if (doorLink && doorImage) {
@@ -175,5 +175,145 @@ document.addEventListener("DOMContentLoaded", function () {
             animateDoor(0);
         }
     });
+
+
+    /* boodoor */
+
+    const boodoor = document.querySelector(".boodoor-link");
+
+    if (boodoor) {
+        const image = boodoor.querySelector("img");
+
+        const frames = [
+            "assets/images/Boodoor1.png",
+            "assets/images/Boodoor2.png",
+            "assets/images/Boodoor3.png",
+            "assets/images/Boodoor4.png"
+        ];
+
+        let currentFrame = 0;
+        let timer = null;
+
+        // 이미지 미리 불러오기
+        frames.forEach(function (src) {
+            const preload = new Image();
+            preload.src = src;
+        });
+
+        function animateBoodoor(targetFrame) {
+            clearInterval(timer);
+
+            if (currentFrame === targetFrame) return;
+
+            timer = setInterval(function () {
+                if (currentFrame < targetFrame) {
+                    currentFrame++;
+                } else {
+                    currentFrame--;
+                }
+
+                image.src = frames[currentFrame];
+
+                if (currentFrame === targetFrame) {
+                    clearInterval(timer);
+                }
+            }, 140);
+        }
+
+        boodoor.addEventListener("mouseenter", function () {
+            animateBoodoor(3);
+        });
+
+        boodoor.addEventListener("mouseleave", function () {
+            if (!boodoor.matches(":focus")) {
+                animateBoodoor(0);
+            }
+        });
+
+        boodoor.addEventListener("focus", function () {
+            animateBoodoor(3);
+        });
+
+        boodoor.addEventListener("blur", function () {
+            if (!boodoor.matches(":hover")) {
+                animateBoodoor(0);
+            }
+        });
+
+        window.addEventListener("pageshow", function () {
+            clearInterval(timer);
+            currentFrame = 0;
+            image.src = frames[0];
+        });
+    }
+
+    /* alicedoor */
+    const alicedoor = document.querySelector(".alicedoor-link");
+    
+    if (alicedoor) {
+        const image = alicedoor.querySelector(".alice-animation");
+
+        const frames = [
+            "assets/images/alicedoor1.png",
+            "assets/images/alicedoor2.png",
+            "assets/images/alicedoor3.png",
+            "assets/images/alicedoor4.png"
+        ];
+
+        let currentFrame = 0;
+        let timer = null;
+
+        // 이미지 미리 불러오기
+        frames.forEach(function (src) {
+            const preload = new Image();
+            preload.src = src;
+        });
+
+        function animateAlicedoor(targetFrame) {
+            clearInterval(timer);
+
+            if (currentFrame === targetFrame) return;
+
+            timer = setInterval(function () {
+                if (currentFrame < targetFrame) {
+                    currentFrame++;
+                } else {
+                    currentFrame--;
+                }
+
+                image.src = frames[currentFrame];
+
+                if (currentFrame === targetFrame) {
+                    clearInterval(timer);
+                }
+            }, 140);
+        }
+
+        alicedoor.addEventListener("mouseenter", function () {
+            animateAlicedoor(3);
+        });
+
+        alicedoor.addEventListener("mouseleave", function () {
+            if (!alicedoor.matches(":focus")) {
+                animateAlicedoor(0);
+            }
+        });
+
+        alicedoor.addEventListener("focus", function () {
+            animateAlicedoor(3);
+        });
+
+        alicedoor.addEventListener("blur", function () {
+            if (!alicedoor.matches(":hover")) {
+                animateAlicedoor(0);
+            }
+        });
+
+        window.addEventListener("pageshow", function () {
+            clearInterval(timer);
+            currentFrame = 0;
+            image.src = frames[0];
+        });
+    }
 
 });

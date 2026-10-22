@@ -46,6 +46,27 @@
             <a class="tardis-link" href="projects.html" aria-label="프로젝트 보러 가기">
                 <img src="assets/images/tardis1.png" alt="">
             </a>
+            <a class="boodoor-link" href="projects.html" aria-label="프로젝트2 보러 가기">
+                <img src="assets/images/Boodoor1.png" alt="">
+            </a>
+            <a class="alicedoor-link"
+                href="projects.html"
+                aria-label="프로젝트3 보러 가기">
+
+                <!-- 뒤쪽: 문 애니메이션 -->
+                <img
+                    class="alice-animation"
+                    src="assets/images/alicedoor1.png"
+                    alt=""
+                >
+
+                <!-- 앞쪽: 모든 프레임에 공통으로 사용하는 눈언덕 -->
+                <img
+                    class="alice-snow-frame"
+                    src="assets/images/aliceframe.png"
+                    alt=""
+                >
+            </a>
         </div>
 
         
@@ -237,4 +258,24 @@
 
     <script src="js/main.js"></script>
 </body>
+
+<!-- 원래 색 위에 연보라색을 얇게 덮는 필터 -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="0" height="0"
+     aria-hidden="true"
+     style="position: absolute; pointer-events: none;">
+    <defs>
+        <filter id="lavender-tint"
+                x="0%" y="0%" width="100%" height="100%"
+                color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="
+                0.82  0     0     0  0.145
+                0     0.82  0     0  0.133
+                0     0     0.82  0  0.164
+                0     0     0     1  0
+            "/>
+        </filter>
+    </defs>
+</svg>
+
 </html>
