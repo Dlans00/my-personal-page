@@ -41,80 +41,139 @@ document.addEventListener("DOMContentLoaded", function () {
     profileObserver.observe(profileBox);
   }
   
-    const doorLink = document.querySelector(".door-link");
+        const doorLink = document.querySelector(".door-link");
     const doorImage = document.querySelector("#door-image");
 
-    const doorFrames = [
-        "assets/images/door1.png",
-        "assets/images/door2.png",
-        "assets/images/door3.png",
-        "assets/images/door4.png"
+    if (doorLink && doorImage) {
+        const doorFrames = [
+            "assets/images/door1.png",
+            "assets/images/door2.png",
+            "assets/images/door3.png",
+            "assets/images/door4.png"
+        ];
+
+        const frameDuration = 140; // 작을수록 빠르게
+        let doorFrameIndex = 0;
+        let doorTimer = null;
+
+        // 이미지 미리 불러오기
+        doorFrames.forEach(function (path) {
+            const preload = new Image();
+            preload.src = path;
+        });
+
+        function animateBlueNoteDoor(targetFrame) {
+            clearInterval(doorTimer);
+
+            if (doorFrameIndex === targetFrame) return;
+
+            doorTimer = setInterval(function () {
+                if (doorFrameIndex < targetFrame) {
+                    doorFrameIndex++;
+                } else {
+                    doorFrameIndex--;
+                }
+
+                doorImage.src = doorFrames[doorFrameIndex];
+
+                if (doorFrameIndex === targetFrame) {
+                    clearInterval(doorTimer);
+                }
+            }, frameDuration);
+        }
+
+        // 커서를 올리면 열기
+        doorLink.addEventListener("mouseenter", function () {
+            animateBlueNoteDoor(3);
+        });
+
+        // 커서가 벗어나면 닫기
+        doorLink.addEventListener("mouseleave", function () {
+            if (!doorLink.matches(":focus")) {
+                animateBlueNoteDoor(0);
+            }
+        });
+
+        // 키보드로 선택해도 열기
+        doorLink.addEventListener("focus", function () {
+            animateBlueNoteDoor(3);
+        });
+
+        doorLink.addEventListener("blur", function () {
+            if (!doorLink.matches(":hover")) {
+                animateBlueNoteDoor(0);
+            }
+        });
+
+        // 뒤로가기로 돌아오면 닫힌 상태로 복원
+        window.addEventListener("pageshow", function () {
+            clearInterval(doorTimer);
+            doorFrameIndex = 0;
+            doorImage.src = doorFrames[0];
+        });
+    }
+
+    const tardis = document.querySelector(".tardis-link");
+
+    if (!tardis) return;
+
+    const image = tardis.querySelector("img");
+
+    const frames = [
+        "assets/images/tardis1.png",
+        "assets/images/tardis2.png",
+        "assets/images/tardis3.png",
+        "assets/images/tardis4.png"
     ];
 
-    const frameDuration = 300; // 한 장당 0.3초
-    let isOpening = false;
+    let currentFrame = 0;
+    let timer = null;
 
-    // 이미지를 미리 불러오기
-    const framesReady = Promise.all(
-        doorFrames.map(function (path) {
-            return new Promise(function (resolve, reject) {
-                const image = new Image();
-
-                image.onload = resolve;
-                image.onerror = function () {
-                    console.error("이미지 불러오기 실패:", image.src);
-                    reject(new Error(path));
-                };
-
-                image.src = path;
-            });
-        })
-    ).then(
-        function () { return true; },
-        function () { return false; }
-    );
-
-    doorLink.addEventListener("click", async function (event) {
-        if (event.ctrlKey || event.metaKey ||
-            event.shiftKey || event.altKey) {
-            return;
-        }
-
-        event.preventDefault();
-
-        if (isOpening) return;
-        isOpening = true;
-
-        const loaded = await framesReady;
-
-        if (!loaded) {
-            alert("문 이미지 경로를 확인해줘. F12 → Console에 실패한 파일이 표시돼.");
-            isOpening = false;
-            return;
-        }
-
-        let frameIndex = 0;
-        doorImage.src = doorFrames[0];
-
-        function nextFrame() {
-            frameIndex++;
-
-            if (frameIndex >= doorFrames.length) {
-                window.location.href = doorLink.href;
-                return;
-            }
-
-            doorImage.src = doorFrames[frameIndex];
-            setTimeout(nextFrame, frameDuration);
-        }
-
-        setTimeout(nextFrame, frameDuration);
+    // 미리 불러와서 처음 문이 열릴 때 깜빡임 줄이기
+    frames.forEach(function (src) {
+        const preload = new Image();
+        preload.src = src;
     });
 
-    // 뒤로가기로 돌아왔을 때 닫힌 문으로 복원
-    window.addEventListener("pageshow", function () {
-        doorImage.src = doorFrames[0];
-        isOpening = false;
+    function animateDoor(targetFrame) {
+        clearInterval(timer);
+
+        if (currentFrame === targetFrame) return;
+
+        timer = setInterval(function () {
+            if (currentFrame < targetFrame) {
+                currentFrame++;
+            } else {
+                currentFrame--;
+            }
+
+            image.src = frames[currentFrame];
+
+            if (currentFrame === targetFrame) {
+                clearInterval(timer);
+            }
+        }, 140);
+    }
+
+    tardis.addEventListener("mouseenter", function () {
+        animateDoor(3);
+    });
+
+    tardis.addEventListener("mouseleave", function () {
+        if (!tardis.matches(":focus")) {
+            animateDoor(0);
+        }
+    });
+
+    // 키보드로 선택해도 문 열기
+    tardis.addEventListener("focus", function () {
+        animateDoor(3);
+    });
+
+    tardis.addEventListener("blur", function () {
+        if (!tardis.matches(":hover")) {
+            animateDoor(0);
+        }
     });
 
 });

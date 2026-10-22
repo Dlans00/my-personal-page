@@ -280,6 +280,42 @@ body {
 }
 
 
+/* .snow-background는 실제 눈 배경 요소의 클래스로 바꿔주세요. */
+.snow-background {
+    position: relative;
+}
+
+/* tardis 추가 */
+.tardis-link {
+    position: absolute;
+
+    /* 눈 배경 기준 위치와 크기 */
+    top: 18.5%;
+    left: 70%;
+    width: 15%;
+    max-width: 240px;
+
+    transform: translateX(-50%);
+    display: block;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.tardis-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tardis-link img {
+    filter:
+        saturate(0.95)
+        brightness(1.15)
+        contrast(0.85);
+
+    opacity: 0.95;
+}
+
 /*
 마우스를 올리면 살짝 커짐
 .door-link:hover {
