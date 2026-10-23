@@ -316,4 +316,75 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /* 타이틀 라벨 */
+    const label = document.getElementById("section-label-text");
+    const profile = document.querySelector(".profile-box");
+
+    if (!label || !profile) return;
+
+    const steps = [
+        "Projects",
+        "Project",
+        "Projec",
+        "Proje",
+        "Proj",
+        "Pro",
+        "Prof",
+        "Profi",
+        "Profil",
+        "Profile"
+    ];
+
+    let scheduled = false;
+
+    function updateLabel() {
+        scheduled = false;
+
+        const screenHeight = window.innerHeight;
+        const scrollTop = Math.max(0, window.scrollY);
+
+        // 문서 전체에서 프로필 박스가 시작되는 위치
+        const profileTop =
+            profile.getBoundingClientRect().top + scrollTop;
+
+        // 프로필이 들어오는 시점부터 시작하되,
+        // 처음부터 보이더라도 맨 위에서는 Projects 유지
+        const start = Math.max(0, profileTop - screenHeight);
+
+        // 작은 화면에서도 변화가 너무 빨리 끝나지 않도록
+        const end = Math.max(
+            start + screenHeight * 0.65,
+            profileTop - screenHeight * 0.35
+        );
+
+        let progress = (scrollTop - start) / (end - start);
+        progress = Math.max(0, Math.min(1, progress));
+
+        const index = Math.min(
+            steps.length - 1,
+            Math.floor(progress * steps.length)
+        );
+
+        if (label.textContent !== steps[index]) {
+            label.textContent = steps[index];
+        }
+    }
+
+    function scheduleUpdate() {
+        if (scheduled) return;
+
+        scheduled = true;
+        requestAnimationFrame(updateLabel);
+    }
+
+    window.addEventListener("scroll", scheduleUpdate, {
+        passive: true
+    });
+
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("pageshow", scheduleUpdate);
+    window.addEventListener("load", scheduleUpdate);
+
+    updateLabel();
+
 });
