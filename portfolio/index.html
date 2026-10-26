@@ -7,14 +7,89 @@
     <title>My Personal Page</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload"
+      href="assets/fonts/Tanker-Regular.ttf"
+      as="font"
+      type="font/truetype"
+      crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
+    <header class="site-header">
+        <a class="site-name" href="./index.html">LEE MOON JEONG</a>
+
+        <nav aria-label="메인 메뉴">
+            <a href="#profile">Profile</a>
+            <a href="#projects">Projects</a>
+        </nav>
     </header>
 
     <main>
+        <section id="profile" class="profile-section">
+
+        <div class="ticket">
+
+            <img
+            class="ticket-frame"
+            src="./assets/images/ticket_frame.png"
+            alt=""
+            >
+
+            <h1
+            class="ticket-box font-display name-box"
+            style="--x: 11; --y: 11; --w: 28; --size: 6;"
+            >
+            LEE<br>
+            MOON JEONG
+            </h1>
+
+            <div
+            class="ticket-box font-display red-ink"
+            style="--x: 39; --y: 9; --w: 25; --size: 2;"
+            >
+            <a href="https://github.com/Dlans00">
+                GitHub · Dlans00
+            </a>
+            <a href="mailto:lee.moonjeong@gmail.com">
+                lee.moonjeong@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/oo-o-329803424/">
+                LinkedIn
+            </a>
+            </div>
+
+            <div
+            class="ticket-box font-display"
+            style="--x: 11.5; --y: 40; --w: 34; --size: 2.5;"
+            >
+            <h3>Sogang Univ.</h3>
+            <p>Grad 2027 Aug.</p>
+            </div>
+
+            <div
+            class="ticket-box font-display"
+            style="--x: 33; --y: 40; --w: 38; --size: 2.5;"
+            >
+            <h3>PRIMARY MAJOR</h3>
+            <p>Computer Science & Engineering</p>
+            </div>
+
+            <div
+            class="ticket-box font-display"
+            style="--x: 53.4; --y: 10; --w: 26; --size: 2; text-align: center; color: white; line-height: 0.9;"
+            >
+            Backend<br>
+             · <br>
+            DevOps<br>
+             · <br>
+            AI
+            </div>
+
+        </div>
+        </section>
     </main>
 
     <footer>
