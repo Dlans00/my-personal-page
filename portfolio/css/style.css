@@ -6,15 +6,51 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Nippo";
+  src: url("../assets/fonts/Nippo-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url("../assets/fonts/Teko-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("../assets/fonts/ClashDisplay-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chubbo";
+  src: url("../assets/fonts/Chubbo.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   --page-width: 1180px;
   --page-padding: 24px;
 
-  --orange: #ff480c;
+  --orange: hwb(14 4% 2%);
   --black: #180b05;
-  --red: #982512;
+  --red: oklab(47.392% 0.16732 0.09207);
+  --white: #fff;
 
   --font-display: "Tanker", Impact, sans-serif;
+  --font-teko: "Teko", sans-serif;
+  --font-clash: "Clash Display", sans-serif;
+  --font-chubbo: "Chubbo", sans-serif;
 }
 
 * {
@@ -63,15 +99,25 @@ footer {
   margin-inline: auto;
 }
 
+
 /* ===== 상단 메뉴 ===== */
 
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
 
-  gap: 20px;
-  padding: 28px 0;
+  /* 위치 조절 */
+  top: 25px;
+  right: 40px;
+
+  width: auto;
+  margin: 0;
+  padding: 0;
+
+  z-index: 100;
+}
+
+.site-header a {
+    font-family: var(--font-clash);
 }
 
 .site-name {
@@ -79,31 +125,39 @@ footer {
   letter-spacing: 0.04em;
 }
 
-nav {
+.site-header nav {
   display: flex;
   gap: 28px;
-  font-size: 14px;
 }
 
-nav a:hover {
+.site-header nav a {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.site-header nav a:hover {
   color: var(--red);
 }
 
 /* ===== 티켓 전체 ===== */
 
 .profile-section {
-  padding-top: 16px;
+  padding-top: 100px;
   text-align: center;
 }
 
 .ticket {
+  isolation: isolate;
   position: relative;
-  width: 100%;
+  margin-inline: auto;
+  width: 60%;
 
   /* 내부 cqw 단위의 기준을 티켓 너비로 설정 */
   container-type: inline-size;
 
   text-align: left;
+
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.10));
 }
 
 .ticket-frame {
@@ -112,7 +166,82 @@ nav a:hover {
   height: auto;
 
   /* 원본 이미지의 가로세로 비율 유지 */
+  position: relative;
+  z-index: 0;
 }
+
+.ticket-decoration {
+  position: absolute;
+
+  left: calc(var(--x, 0) * 1%);
+  top: calc(var(--y, 0) * 1%);
+  width: calc(var(--w, 20) * 1%);
+  height: auto;
+
+  z-index: 2;
+}
+
+.divider-group {
+  position: absolute;
+  left: 9%;
+  top: 50%;
+  width: 64%;
+
+  z-index: 2;
+
+  /* 내부 글자 크기를 이 그룹의 너비에 비례시키기 */
+  container-type: inline-size;
+}
+
+.divider-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 윗줄 글자 영역 */
+.divider-top {
+  position: absolute;
+
+  left: 0.1%;
+  top: 21%;
+  width: 94%;
+  height: 29%;
+
+  font-size: 3.1cqw;
+  font-weight: 700;
+}
+
+.divider-top span {
+  position: absolute;
+
+  left: calc(var(--x) * 1%);
+  top: 50%;
+
+  /* 지정한 위치에 단어의 중심 맞추기 */
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+/* 아랫줄 글자 영역 */
+.divider-bottom {
+  position: absolute;
+
+  left: 6%;
+  top: 45%;
+  width: 88%;
+  height: 45%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.7cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
 
 /* ===== 텍스트 박스 공통 ===== */
 
@@ -122,6 +251,8 @@ nav a:hover {
   left: calc(var(--x, 0) * 1%);
   top: calc(var(--y, 0) * 1%);
   width: calc(var(--w, 30) * 1%);
+
+  z-index: 2;
 
   /* 1cqw = 티켓 너비의 1% */
   font-size: calc(var(--size, 2) * 1cqw);
@@ -135,6 +266,7 @@ nav a:hover {
 .font-display {
   font-family: var(--font-display);
   font-weight: 400;
+  letter-spacing: 0.06em;
 }
 
 .font-heading {
@@ -147,11 +279,41 @@ nav a:hover {
   font-weight: 600;
 }
 
+.font-nippo {
+  font-family: "Nippo", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.font-nippobold {
+  font-family: "Nippo", sans-serif;
+  font-weight: 550;
+  letter-spacing: -0.05em;
+}
+
+.font-clash {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.font-teko {
+  font-family: "Teko", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.font-chubbo {
+  font-family: "Chubbo", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
 /* 이름 */
 
 .name-box {
   line-height: 0.94;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
 }
 
 /* 박스 내부 제목: 해당 박스 본문 크기의 1.5배 */
@@ -169,13 +331,17 @@ nav a:hover {
   color: var(--red);
 }
 
+.white-ink {
+  color: var(--white);
+}
+
 .ticket-box a {
   display: block;
   width: fit-content;
 }
 
 .ticket-box a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* 편집용 박스 테두리 */
@@ -189,16 +355,20 @@ nav a:hover {
 
 .profile-link {
   display: inline-block;
-  margin-top: 24px;
-  padding: 8px 0;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: inherit;
+  line-height: 1;
+  white-space: nowrap;
 
   color: var(--red);
   font-weight: 600;
 }
 
 .profile-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration: none;
 }
 
 .scroll-guide {
@@ -212,7 +382,6 @@ nav a:hover {
 
 footer {
   padding: 28px 0;
-  border-top: 1px solid #ddd;
 
   color: #666;
   font-size: 12px;
@@ -226,22 +395,307 @@ footer {
     --page-padding: 14px;
   }
 
-  .site-header {
-    padding: 20px 0;
-  }
-
   .site-name {
     font-size: 14px;
   }
 
-  nav {
-    gap: 14px;
-    font-size: 12px;
-  }
+}
+
+.external-mark {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.2em;
+  vertical-align: baseline;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+}
+
+.profile-link-text {
+    display: inline-block;
+    transform: scaleY(1.3);
+}
+
+.wide-arrow {
+  width: 1em;
+  height: 80em;
+  vertical-align: middle;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 두 화살표를 각각 깜빡이기 */
+.wide-arrow polyline {
+  animation: arrow-alternate 2s ease-in-out infinite;
+}
+
+.wide-arrow polyline:nth-child(2) {
+  animation-delay: -0.25s;
+}
+
+@keyframes arrow-alternate {
+  0%, 100% {
+    opacity: 0.45;
+  }
+
+  40%, 60% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wide-arrow polyline {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.profile-link-custom {
+  position: relative;
+}
+
+.profile-link-custom .wide-arrow {
+  position: absolute;
+
+  left: var(--arrow-x);
+  top: var(--arrow-y);
+
+  width: 1em;
+  height: 0.7em;
+
+  transform: translateY(-50%) rotate(180deg);
+  margin: 0;
+}
+
+/* 학교 도장 */
+.school-stamp {
+  position: absolute;
+
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: calc(var(--w) * 1%);
+  height: auto;
+
+  z-index: 1;
+  opacity: 0.55;
+  transform: rotate(-15deg);
+
+  /* 도장이 링크 클릭을 막지 않도록 */
+  pointer-events: none;
+}
+
+/* ===== 링크에 빛 효과 ===== */
+.glow-link {
+  transition: text-shadow 0.9s ease;
+}
+
+/* 글자에 옅은 노란빛 */
+.glow-link:hover,
+.glow-link:focus-visible {
+  text-decoration: none;
+
+  text-shadow:
+    0 0 1px #ffc35acc,
+    0 0 2px rgba(255, 210, 50, 0.5);
+}
+
+/* SVG 아이콘과 화살표에도 같은 빛 적용 */
+.glow-link svg {
+  transition: filter 0.2s ease;
+}
+
+.glow-link:hover svg,
+.glow-link:focus-visible svg {
+  filter: drop-shadow(0 0 3px rgba(255, 220, 70, 0.8));
+}
+
+.ticket-mark {
+    position: absolute;
+
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    width: calc(var(--w) * 1%);
+    height: auto;
+
+    transform: translate(-50%, -50%) rotate(var(--rotate, 0deg));
+    z-index: 10;
+}
+
+/* ===== 프로젝트 섹션 ===== */
+#projects {
+    margin-top: 300px;
+}
+
+/* Projects 전체 영역 */
+#projects {
+    width: min(1100px, 88%);
+    margin: 350px auto 150px;
+}
+
+/* Projects 제목 + 아래 구분선 */
+.projects-heading {
+    margin: 0 0 110px;
+    padding-bottom: 24px;
+
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+
+    border-bottom: 1px solid hsl(0, 0%, 0%);
+}
+
+/* 우표와 설명을 나란히 배치 */
+.project-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 90px;
+
+    margin-bottom: 180px;
+}
+
+/* 두 번째 줄은 우표를 오른쪽으로 */
+.project-row-reverse {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.project-row-reverse .project-stamp {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.project-row-reverse .project-info {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+}
+
+/* 우표 전체: 틀과 대시보드가 함께 회전 */
+.project-stamp {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    transform: rotate(var(--rotate, 0deg));
+}
+
+/* 대시보드가 보이는 안쪽 영역 */
+.stamp-window {
+    position: absolute;
+
+    /* 실제 우표틀 안쪽 구멍에 맞춰 조절 */
+    inset: 7%;
+
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* 대시보드 이미지 위치와 확대 */
+.stamp-screenshot {
+    position: absolute;
+    left: var(--image-x, 50%);
+    top: var(--image-y, 50%);
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+
+    transform:
+        translate(-50%, -50%)
+        scale(var(--zoom, 1));
+}
+
+/* 투명한 가운데를 가진 우표틀 PNG */
+.stamp-frame {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* 프로젝트 설명 */
+.project-info h3 {
+    margin: 0 0 18px;
+    color: lch(70.72% 0.01 296.81);
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 400;
+}
+
+.project-info p {
+    margin: 0 0 26px;
+    color: hwb(0 66% 34%);
+    font-size: 12.5px;
+    line-height: 1.7;
+    word-break: keep-all;
+}
+
+.project-info a {
+    color: #e95028;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+/* 작은 화면에서는 우표 아래에 설명 */
+@media (max-width: 700px) {
+    .project-row,
+    .project-row-reverse {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 55px;
+        margin-bottom: 120px;
+    }
+
+    .project-stamp {
+        max-width: 360px;
+        margin-inline: auto;
+    }
+
+    .project-row .project-stamp,
+    .project-row .project-info {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .project-row .project-info {
+        text-align: center;
+    }
+}
+
+/* Projects 제목 아래 구분선 */
+#projects .projects-heading {
+    display: block;
+    width: 100%;
+    padding-bottom: 19px;
+    border-bottom: 1.7px solid oklab(92.494% 0 -0.00011);
+}
+
+/* 각 프로젝트 이름 크기 */
+#projects .project-info h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.project-title,
+.project-description {
+    position: relative;
+    left: var(--move-x, 0px);
+    top: var(--move-y, 0px);
 }
