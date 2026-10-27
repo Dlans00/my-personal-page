@@ -666,16 +666,19 @@ footer {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
+    display: block;
+    cursor: pointer;
 
     transform: rotate(var(--rotate, 0deg));
 }
+
 
 /* 대시보드가 보이는 안쪽 영역 */
 .stamp-window {
     position: absolute;
 
     /* 실제 우표틀 안쪽 구멍에 맞춰 조절 */
-    inset: 7%;
+    inset: 9% 11% 9% 11%;
 
     overflow: hidden;
     border-radius: 8px;
@@ -707,22 +710,35 @@ footer {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.18));
 }
 
 /* 프로젝트 설명 */
 .project-info h3 {
     margin: 0 0 18px;
-    color: lch(70.72% 0.01 296.81);
+    color: lab(57.48% 0 -0.01);
     font-size: clamp(24px, 3vw, 42px);
     font-weight: 400;
 }
 
 .project-info p {
     margin: 0 0 26px;
-    color: hwb(0 66% 34%);
+    color: lab(57.48% 0 -0.01);
     font-size: 12.5px;
     line-height: 1.7;
     word-break: keep-all;
+}
+
+#projects .project-info .project-stack {
+    position: relative;
+    left: var(--move-x, 0px);
+    top: var(--move-y, 0px);
+
+    margin: 0 0 18px;
+    font-size: 10px;
+    font-weight: 400;
+    color: lch(71.47% 0.01 296.81);
+    line-height: 1.5;
 }
 
 .project-info a {
@@ -776,3 +792,98 @@ footer {
     left: var(--move-x, 0px);
     top: var(--move-y, 0px);
 }
+
+.project-stamp:focus-visible {
+    outline: 2px solid #e95028;
+    outline-offset: 8px;
+}
+
+#projects .project-stamp {
+    display: block;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* 클릭은 바깥의 a 태그가 받도록 */
+#projects .project-stamp .stamp-window,
+#projects .project-stamp .stamp-screenshot,
+#projects .project-stamp .stamp-frame {
+    pointer-events: none;
+}
+
+.github-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    position: relative;
+    pointer-events: auto;
+}
+
+/* 글자 위치는 유지하면서 마크만 왼쪽에 배치 */
+.github-contact-mark {
+    position: absolute;
+    width: 1em;
+    height: auto;
+
+    left: -1.4em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.github-contact .github-contact-mark {
+    position: static;
+    display: block;
+
+    width: 1em;
+    height: 1em;
+    max-width: none;
+    object-fit: contain;
+
+    transform: none;
+    flex-shrink: 0;
+}
+
+.ticket-box .contact-link {
+    position: relative;
+    pointer-events: auto;
+}
+
+/* 글자는 그대로 두고 마크를 왼쪽에 배치 */
+.contact-link .contact-mark {
+    position: absolute;
+    display: block;
+
+    left: -1.4em;
+    top: 50%;
+    width: 1em;
+    height: 1em;
+    max-width: none;
+
+    object-fit: contain;
+    transform: translateY(-50%);
+}
+
+/* ===== View Project: 색상과 밑줄 ===== */
+#projects .project-info a {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    text-underline-offset: 5px;
+}
+
+#projects .project-info a:hover,
+#projects .project-info a:focus-visible {
+    color: #ae0707;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(233, 80, 40, 0.15);
+}
+
+.glow-link .contact-mark {
+    transition: filter 0.9s ease;
+}
+
+.glow-link:hover .contact-mark,
+.glow-link:focus-visible .contact-mark {
+    filter: drop-shadow(0 0 3px rgba(255, 220, 70, 0.8));
+}
+

@@ -55,20 +55,6 @@
             style="--x: 12; --y: 0; --w: 27;"
             >
 
-            <img
-            class="ticket-mark"
-            src="./assets/images/github_mark.png"
-            alt="GitHub"
-            style="--x: 38.6; --y: 12.15; --w: 2; --rotate: 0deg;"
-            >
-
-            <img
-                class="ticket-mark"
-                src="./assets/images/linkedin_mark.png"
-                alt="LinkedIn"
-                style="--x: 38.8; --y: 22.9; --w: 2; --rotate: 0deg;"
-            >
-
             <div class="divider-group">
                 <img
                     class="divider-image"
@@ -104,17 +90,21 @@
             style="--x: 40; --y: 9.65; --w: 25; --size: 2;"
             >
                 <a
-                    class="glow-link"
+                    class="glow-link contact-link"
                     href="https://github.com/Dlans00"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                GitHub · Dlans00
-                <svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14 3h7v7"></path>
-                    <path d="M21 3 10 14"></path>
-                    <path d="M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path>
-                </svg>
+                    <img
+                    class="contact-mark"
+                    src="./assets/images/github_mark.png"
+                    alt=""                    >
+                    GitHub · Dlans00
+                    <svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 3h7v7"></path>
+                        <path d="M21 3 10 14"></path>
+                        <path d="M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path>
+                    </svg>
                 </a>
             </div>
 
@@ -132,11 +122,16 @@
                 style="--x: 40; --y: 20.35; --w: 25; --size: 2;"
             >
                 <a
-                    class="glow-link"
+                    class="glow-link contact-link"
                     href="https://www.linkedin.com/in/oo-o-329803424/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
+                    <img
+                        class="contact-mark"
+                        src="./assets/images/linkedin_mark.png"
+                        alt=""
+                    >
                     LinkedIn
                     <svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M14 3h7v7"></path>
@@ -289,8 +284,9 @@
 
             <!-- 첫 번째 프로젝트: 우표 왼쪽 -->
             <article class="project-row">
-                <div
+                <a
                     class="project-stamp"
+                    href="./robo-advisor.html"
                     style="--rotate: 9deg; width: 320px; max-width: 100%; aspect-ratio: 4 / 3;"
                 >
                     <div class="stamp-window">
@@ -298,7 +294,7 @@
                             class="stamp-screenshot"
                             src="./assets/images/robo_dashboard.png"
                             alt="로보어드바이저 대시보드"
-                            style="--image-x: 51%; --image-y: 45%; --zoom: 0.9;"
+                            style="--image-x: 49.5%; --image-y: 50%; --zoom: 0.95;"
                         >
                     </div>
 
@@ -307,23 +303,29 @@
                         src="./assets/images/stamp_frame.png"
                         alt=""
                     >
-                </div>
+                </a>
 
                 <div class="project-info" style="font-size: 10px;">
                     <h3 class="font-clash"
                         style="position: relative;
                         left: -60px;
-                        top: 20px;
+                        top: 35px;
                         font-size: 15px;"
                     >
                     AI Robo-Advisor
                     </h3>
                     <p
-                        class="project-description font-Chubbo"
+                        class="project-description font-pretendard"
                         style="left: -60px;
-                        top: 10px;"
+                        top: 20px;"
                     >
                     PPO와 Agentic RAG를 활용한 포트폴리오 관리 서비스
+                    </p>
+                    <p
+                        class="project-stack font-pretendard"
+                        style="--move-x: -60px; --move-y: 10px;"
+                    >
+                    PPO · RAG · Python · LLM
                     </p>
                     <a
                         href="./robo-advisor.html"
@@ -334,9 +336,7 @@
                             top: 10px;
                             text-align: left;
 
-                            color: #e95028;
                             font-size: 13px;
-                            text-decoration: none;
                         "
                     >
                         View Project →
@@ -346,14 +346,15 @@
 
             <!-- 두 번째 프로젝트: 우표 오른쪽 -->
             <article class="project-row project-row-reverse">
-                <div
+                <a
                     class="project-stamp"
-                    style="--rotate: -7deg; width: 320px; max-width: 100%;"
+                    href="./debugmate.html"
+                    style="--rotate: -7deg; width: 320px; max-width: 100%; aspect-ratio: 4 / 3;"
                 >
                     <div class="stamp-window">
                         <img
                             class="stamp-screenshot"
-                            src="./assets/images/robo_dashboard.png"
+                            src="./assets/images/debugmate_dashboard.png"
                             alt="DebugMate 실행 화면"
                             style="--image-x: 50%; --image-y: 50%; --zoom: 1;"
                         >
@@ -364,31 +365,40 @@
                         src="./assets/images/stamp_frame.png"
                         alt=""
                     >
-                </div>
+                </a>
 
                 <div class="project-info">
                     <h3 class="font-clash"
-                        style="--move-x: 0px; --move-y: -10px; font-size: 15px;"
+                        style="position: relative;
+                        font-size: 15px;
+                        left: 60px;
+                        top: 35px;"
                     >
                         DebugMate
                     </h3>
                     <p
-                        class="project-description"
-                        style="--move-x: 0px; --move-y: 5px;"
+                        class="project-description font-pretendard"
+                        style="--move-x: 0px; --move-y: 5px;
+                        left: 60px;
+                        top: 20px;"
                     >
                     GPT/LLM을 연동한 리눅스 디버깅 도우미</p>
+                    <p
+                        class="project-stack font-pretendard"
+                        style="--move-x: 60px; --move-y: 10px;"
+                    >
+                    LLM · Python · Linux
+                    </p>
                     <a
                         href="./robo-advisor.html"
                         style="
                             display: block;
                             position: relative;
-                            left: -1px;
+                            left: 60px;
                             top: 10px;
                             text-align: right;
 
-                            color: #e95028;
                             font-size: 13px;
-                            text-decoration: none;
                         "
                     >
                         View Project →
