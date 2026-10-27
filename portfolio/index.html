@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+    
     <header class="site-header font-clash">
         <nav aria-label="메인 메뉴">
             <a href="#profile">Profile</a>
@@ -122,9 +122,9 @@
                 class="ticket-box font-display red-ink"
                 style="--x: 36.8; --y: 15; --w: 35; --size: 2;"
             >
-            <a href="mailto:lee.moonjeong@gmail.com">
-                lee.moonjeong@gmail.com
-            </a>
+                <a href="mailto:lee.moonjeong@gmail.com">
+                    lee.moonjeong@gmail.com
+                </a>
             </div>
 
             <div
@@ -137,13 +137,13 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                LinkedIn
+                    LinkedIn
                     <svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M14 3h7v7"></path>
                         <path d="M21 3 10 14"></path>
                         <path d="M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path>
                     </svg>
-            </a>
+                </a>
             </div>
 
             <div
@@ -277,10 +277,128 @@
                 RELEVANT COURSEWORK: Information Security · Compilers · DevOps<br>
                 Operating Systems · Databases · Capstone Design
             </div>
-            </div>
+        </div>
 
         </div>
         </section>
+
+        <section id="projects">
+            <h2 class="projects-heading font-clash" style="display: block; letter-spacing: 0.05em; font-size: 0.9em; color: #b3b3b3; text-align: center;">
+                Projects
+            </h2>
+
+            <!-- 첫 번째 프로젝트: 우표 왼쪽 -->
+            <article class="project-row">
+                <div
+                    class="project-stamp"
+                    style="--rotate: 9deg; width: 320px; max-width: 100%; aspect-ratio: 4 / 3;"
+                >
+                    <div class="stamp-window">
+                        <img
+                            class="stamp-screenshot"
+                            src="./assets/images/robo_dashboard.png"
+                            alt="로보어드바이저 대시보드"
+                            style="--image-x: 51%; --image-y: 45%; --zoom: 0.9;"
+                        >
+                    </div>
+
+                    <img
+                        class="stamp-frame"
+                        src="./assets/images/stamp_frame.png"
+                        alt=""
+                    >
+                </div>
+
+                <div class="project-info" style="font-size: 10px;">
+                    <h3 class="font-clash"
+                        style="position: relative;
+                        left: -60px;
+                        top: 20px;
+                        font-size: 15px;"
+                    >
+                    AI Robo-Advisor
+                    </h3>
+                    <p
+                        class="project-description font-Chubbo"
+                        style="left: -60px;
+                        top: 10px;"
+                    >
+                    PPO와 Agentic RAG를 활용한 포트폴리오 관리 서비스
+                    </p>
+                    <a
+                        href="./robo-advisor.html"
+                        style="
+                            display: block;
+                            position: relative;
+                            left: -60px;
+                            top: 10px;
+                            text-align: left;
+
+                            color: #e95028;
+                            font-size: 13px;
+                            text-decoration: none;
+                        "
+                    >
+                        View Project →
+                    </a>
+                </div>
+            </article>
+
+            <!-- 두 번째 프로젝트: 우표 오른쪽 -->
+            <article class="project-row project-row-reverse">
+                <div
+                    class="project-stamp"
+                    style="--rotate: -7deg; width: 320px; max-width: 100%;"
+                >
+                    <div class="stamp-window">
+                        <img
+                            class="stamp-screenshot"
+                            src="./assets/images/robo_dashboard.png"
+                            alt="DebugMate 실행 화면"
+                            style="--image-x: 50%; --image-y: 50%; --zoom: 1;"
+                        >
+                    </div>
+
+                    <img
+                        class="stamp-frame"
+                        src="./assets/images/stamp_frame.png"
+                        alt=""
+                    >
+                </div>
+
+                <div class="project-info">
+                    <h3 class="font-clash"
+                        style="--move-x: 0px; --move-y: -10px; font-size: 15px;"
+                    >
+                        DebugMate
+                    </h3>
+                    <p
+                        class="project-description"
+                        style="--move-x: 0px; --move-y: 5px;"
+                    >
+                    GPT/LLM을 연동한 리눅스 디버깅 도우미</p>
+                    <a
+                        href="./robo-advisor.html"
+                        style="
+                            display: block;
+                            position: relative;
+                            left: -1px;
+                            top: 10px;
+                            text-align: right;
+
+                            color: #e95028;
+                            font-size: 13px;
+                            text-decoration: none;
+                        "
+                    >
+                        View Project →
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+
     </main>
 
     <footer>
