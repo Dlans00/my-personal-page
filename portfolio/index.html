@@ -263,16 +263,16 @@
                         transform: rotate(-90deg);
                         transform-origin: left top;"
             >
-            <div
-                style="width: max-content;
-                    text-align: center;
-                    white-space: nowrap;
-                    line-height: 1.3;"
-            >
-                RELEVANT COURSEWORK: Information Security · Compilers · DevOps<br>
-                Operating Systems · Databases · Capstone Design
+                <div
+                    style="width: max-content;
+                        text-align: center;
+                        white-space: nowrap;
+                        line-height: 1.3;"
+                >
+                    RELEVANT COURSEWORK: Information Security · Compilers · DevOps<br>
+                    Operating Systems · Databases · Capstone Design
+                </div>
             </div>
-        </div>
 
             <a
                 class="ticket-scroll-arrow"
@@ -365,9 +365,29 @@
             <article class="project-row project-row-reverse">
                 <a
                     class="project-stamp"
-                    href="./debugmate.html"
-                    style="--rotate: -7deg; width: 320px; max-width: 100%; aspect-ratio: 4 / 3;"
+                    href="./projects/debugmate.html"
+                    style="--rotate: -7deg; 
+                    width: 320px; 
+                    max-width: 100%; 
+
+                    --stamp-x: -20px;
+                    --stamp-y: 10px;
+                    --rotate: 0deg;
+
+                    --back-x: 15%;
+                    --back-y: -15%;
+                    --back-width: 97%;
+                    --back-height: 95%;
+                    --back-rotate: 5deg;
+
+                    aspect-ratio: 4 / 3;"
                 >
+                    <!-- 뒤쪽: 가운데가 채워진 우표 -->
+                    <img
+                        class="stamp-back"
+                        src="./assets/images/red_stampframe.png"
+                        alt=""
+                    >
                     <div class="stamp-window">
                         <img
                             class="stamp-screenshot"
@@ -407,7 +427,7 @@
                     LLM · Python · Linux
                     </p>
                     <a
-                        href="./robo-advisor.html"
+                        href="./projects/robo-advisor.html"
                         style="
                             display: block;
                             position: relative;
