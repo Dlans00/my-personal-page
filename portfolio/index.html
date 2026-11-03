@@ -32,7 +32,7 @@
     
     <header class="site-header font-clash">
         <nav aria-label="메인 메뉴">
-            <a href="#profile">Profile</a>
+            <a href="#profiles">Profile</a>
             <a href="#projects">Projects</a>
         </nav>
     </header>
@@ -208,7 +208,7 @@
 
             <div
             class="ticket-box font-nippobold"
-            style="--x: 10.65; --y: 55.2; --w: 38; --size: 1.9; letter-spacing: -0.05em;"
+            style="--x: 10.65; --y: 56.1; --w: 38; --size: 1.9; letter-spacing: -0.05em;"
             >
             <h3>PROJECTS</h3>
             </div>
@@ -233,7 +233,7 @@
             transform-origin: left top;
             white-space: nowrap;"
             >
-            <a class="profile-link profile-link-custom glow-link" href="./profile.html">
+            <a class="profile-link profile-link-custom glow-link" href="#profiles">
                 <span class="profile-link-text"
                 style="letter-spacing: 0.02px; font-size: 3cqw; font-weight: 600;"
                 >
@@ -274,6 +274,23 @@
             </div>
         </div>
 
+            <a
+                class="ticket-scroll-arrow"
+                href="#projects"
+                aria-label="아래 프로젝트 보기"
+                style="
+                    --arrow-x: 50%;
+                    --arrow-y: 105%;
+                    --arrow-size: 20px;
+                    --arrow-thickness: 1.5;
+                "
+            >
+                <svg viewBox="0 0 32 36" aria-hidden="true">
+                    <polyline points="6,7 16,17 26,7"></polyline>
+                    <polyline points="6,19 16,29 26,19"></polyline>
+                </svg>
+            </a>
+
         </div>
         </section>
 
@@ -286,7 +303,7 @@
             <article class="project-row">
                 <a
                     class="project-stamp"
-                    href="./robo-advisor.html"
+                    href="./projects/robo-advisor.html"
                     style="--rotate: 9deg; width: 320px; max-width: 100%; aspect-ratio: 4 / 3;"
                 >
                     <div class="stamp-window">
@@ -328,7 +345,7 @@
                     PPO · RAG · Python · LLM
                     </p>
                     <a
-                        href="./robo-advisor.html"
+                        href="./projects/robo-advisor.html"
                         style="
                             display: block;
                             position: relative;
@@ -408,8 +425,164 @@
 
         </section>
 
+        <!-- Profiles Details -->
+        <section id="profiles">
+            <h2 class="projects-detail-heading font-clash" style="display: block; letter-spacing: 0.05em; font-size: 0.9em; color: #b3b3b3; text-align: center;">
+                Detailed Profile
+            </h2>
+            <div class="projects-detail-content font-pretendard">
+                <div class="profile-group">
+                    <h3 class="font-pretendard">Stack</h3>
+                    <ul>
+                        <li>언어: C, C++ · Python</li>
+                        <li>백엔드: FastAPI · Django, Spring 학습 경험</li>
+                        <li>데이터베이스: MySQL, SQL</li>
+                        <li>AI: GPT·LLM 연동, PPO, RAG, DevOps 연동</li>
+                        
+                        <li class="stack-subheading">[ DevOps ]</li>
+                        <li>Docker, Kubernetes/K3s, Jenkins</li>
+                        <li>모니터링- Prometheus, Grafana, Loki</li>
+                        <li>테스트·품질- Pytest, JMeter, SonarQube</li>
+                        
+                        <li>도구: Git, GitHub, Linux, DBeaver</li>
+
+                        <li class="stack-subheading">+ 프론트엔드: HTML, CSS 기초 실습 경험</li>
+                    </ul>
+                </div>
+
+                <div class="profile-group">
+                    <h3 class="font-pretendard">Projects</h3>
+                    <ul>
+                        <li><strong>퍼니페니(FunnyPenny)</strong> — 학급 경제 롤플레잉 교육 서비스</li>
+                        <li><strong>디버그메이트(DebugMate)</strong> — Linux용 GPT·LLM 연동 디버깅 지원 도구</li>
+                        <li><strong>통합 자율 로보어드바이저</strong> — PPO·에이전틱 RAG 기반 투자 포트폴리오 서비스</li>
+                        <li><strong>분픽(BoonPick)</strong> — 학교 정보 크롤링, 검색·추천 기능 및 DevOps 환경 구성 및 자동화</li>
+                        <li><strong>시스템 전공 프로젝트</strong> — Pintos 운영체제 및 Flex/Bison 기반 컴파일러 구현</li>
+                    </ul>
+                </div>
+
+                <div class="profile-group">
+                    <h3 class="font-pretendard">Awards</h3>
+                    <ul>
+                        <li>서강대학교 캡스톤 경진대회 장려상</li>
+                    </ul>
+                </div>
+
+                <div class="profile-group">
+                    <h3 class="font-pretendard">Activities</h3>
+                    <ul>
+                        <li><strong>멋쟁이사자처럼 대학 12기 · 중앙해커톤</strong>/아이디어톤/데모데이 참가</li>
+                        <li>한국컴퓨터종합학술대회(KCC) 논문대회 참가</li>
+                    </ul>
+                </div>
+
+                <div class="profile-group">
+                    <h3 class="font-pretendard">Coursework</h3>
+                    <p>
+                        해킹 및 정보보안 · DevOps · 운영체제 · 컴파일러 ·
+                        데이터베이스 · 캡스톤 설계
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="profile-divider">
+
+
+        <section id="interests">
+            <h2 class="interests-heading font-pretendard" style="display: block; letter-spacing: 0.05em; font-size: 0.9em; color: #b3b3b3; text-align: center;">
+                Interests
+            </h2>
+
+            <div class="interest-rows">
+                <div class="interest-images">
+                    <a href="./pik.html">
+                        <img
+                        src="./assets/images/pikmin.png"
+                        alt=""
+                        class="interest-image"
+                        style="--size: 70px; --x: 0px; --y: 8px;"
+                        />
+                    </a>
+                    <img
+                    src="./assets/images/doctorwho.png"
+                    alt=""
+                    class="interest-image"
+                    style="--size: 45px; --x: -5px; --y: 24px;"
+                    />
+                    <img
+                    src="./assets/images/witch.png"
+                    alt=""
+                    class="interest-image"
+                    style="--size: 60px; --x: 0px; --y: 15px;"
+                    />
+                    <img
+                    src="./assets/images/Saxophone.png"
+                    alt=""
+                    class="interest-image"
+                    style="--size: 40px; --x: -10px; --y: 25px;"
+                    />
+                    <img
+                    src="./assets/images/muck.png"
+                    alt=""
+                    class="interest-image"
+                    style="--size: 45px; --x: -20px; --y: 25px;"
+                    />
+                </div>
+                    
+                    <!-- 두 번째 줄 -->
+                    <div class="interest-images">
+                        <img
+                        src="./assets/images/football.png"
+                        alt=""
+                        class="interest-image"
+                        style="--size: 45px; --x: 0px; --y: 0px;"
+                        />
+                        <a href="https://www.brightonandhovealbion.com/home">
+                            <img
+                            src="./assets/images/bha.png"
+                            alt=""
+                            class="interest-image"
+                            style="--size: 35px; --x: -5px; --y: 5px;"
+                            />
+                        </a>
+                        
+                        <img
+                        src="./assets/images/pba.png"
+                        alt=""
+                        class="interest-image"
+                        style="--size: 35px; --x: 0px; --y: 5px;"
+                        />
+                        <a href="https://www.harrypotter.com/collections/ravenclaw">
+                            <img
+                            src="./assets/images/Ravenclaw.png"
+                            alt=""
+                            class="interest-image"
+                            style="--size: 35px; --x: 0px; --y: 5px;"
+                            />
+                        </a>
+                        <a href="https://pokemonkorea.co.kr/pokedex/view/1179?word=%EC%AB%80%EB%8F%84%EA%B8%B0&characters=&area=&snumber=1&snumber2=1025&typetextcs=_________________&sortselval=number%20asc,number_count%20asc">
+                            <img
+                            src="./assets/images/jjondogi.png"
+                            alt=""
+                            class="interest-image"
+                            style="--size: 42px; --x: 0px; --y: 4px;"
+                            />
+                        </a>
+                        <img
+                        src="./assets/images/totoro.png"
+                        alt=""
+                        class="interest-image"
+                        style="--size: 23px; --x: 0px; --y: 10px;"
+                        />
+                    </div>
+                    
+            </div>
+        </section>
+
 
     </main>
+    
 
     <footer>
     </footer>
