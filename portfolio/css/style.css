@@ -144,6 +144,7 @@ body {
   background: #fff;
   color: var(--black);
   font-family: Arial, "Malgun Gothic", sans-serif;
+  padding-bottom: 200px;
 }
 
 h1,
@@ -226,6 +227,8 @@ footer {
 .ticket {
   isolation: isolate;
   position: relative;
+  left: 0px;
+  top: 50px;
   margin-inline: auto;
   width: 60%;
 
@@ -879,11 +882,311 @@ footer {
 }
 
 .glow-link .contact-mark {
-    transition: filter 0.9s ease;
+    transition: filter 0.2s ease;
 }
 
 .glow-link:hover .contact-mark,
 .glow-link:focus-visible .contact-mark {
     filter: drop-shadow(0 0 3px rgba(255, 220, 70, 0.8));
+}
+
+
+/* ===== 페이지 임시 이미지 ===== */
+main.image-page {
+    width: 80%;
+    max-width: 500px;
+    margin: 0px auto;
+}
+
+@media (max-width: 600px) {
+    main.image-page {
+        margin: 70px auto;
+    }
+}
+
+/* 프로젝트 제목 영역 */
+.project-page-header {
+    width: 80%;
+    max-width: 1000px;
+    margin: 80px auto 20px;
+}
+
+/* 제목과 아래 구분선 */
+.project-header {
+    margin: 0;
+    padding-bottom: 24px;
+
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+
+    /*border-bottom: 1px solid hsl(0, 0%, 49%);*/
+}
+
+
+/* 프로필 상세 제목 + 아래 구분선 */
+.projects-detail-heading {
+    margin: 450px 0 50px;
+    padding-bottom: 24px;
+
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+
+    border-bottom: 1.7px solid oklab(92.494% 0 -0.00011);
+
+}
+
+/* 프로필 상세 내용 */
+.projects-detail-content {
+    max-width: 610px;
+    margin: 50px auto 50px;
+    padding: 0 50px 40px;
+    color: lch(49.64% 0.01 296.81);
+
+    text-align: left;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+
+    border-bottom: none;
+}
+
+
+.profile-group + .profile-group {
+    margin-top: 36px;
+}
+
+.profile-group h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.profile-group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-group li + li {
+    margin-top: 6px;
+}
+
+.profile-group strong {
+    font-weight: 600;
+}
+
+.profile-group p {
+    margin: 0;
+}
+
+/* DevOps 소제목 위아래 간격 */
+.profile-group li.stack-subheading {
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+/* 도구 항목 위 간격 */
+.profile-group li.stack-gap {
+    margin-top: 12px;
+}
+
+.profile-divider {
+    width: 100%;             /* 페이지 기준 구분선 길이 */
+    height: 1.7px;
+    margin: 40px auto;       /* 가운데 정렬 */
+    border: 0;
+    border-top: 1.7px solid oklab(92.494% 0 -0.00011);
+    background: none;
+}
+
+
+
+/* 위치를 잡는 바깥 링크 */
+.ticket-scroll-arrow {
+    position: absolute;
+    left: var(--arrow-x, 50%);
+    top: var(--arrow-y, 115%);
+    transform: translateX(-50%);
+
+    display: block;
+    width: var(--arrow-size, 32px);
+    color: #ccc;
+}
+
+/* 안쪽 SVG만 아래로 움직임 */
+.ticket-scroll-arrow svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: var(--arrow-thickness, 1.5);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    animation: scroll-arrow-down 2.5s ease-in-out infinite;
+}
+
+@keyframes scroll-arrow-down {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(9px);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticket-scroll-arrow svg {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+
+/* 티켓 프로필 전체를 아래로 */
+#profile.profile-section {
+    padding-top: 200px; /* 기존 100px → 200px */
+}
+
+/* 기존 티켓 이동값 초기화 */
+#profile .ticket {
+    top: 0;
+}
+
+.glow-link {
+    transition: text-shadow 0.3s ease;
+}
+
+.glow-link svg,
+.glow-link .contact-mark {
+    transition: filter 0.3s ease;
+}
+
+.glow-link:hover svg,
+.glow-link:focus-visible svg,
+.glow-link:hover .contact-mark,
+.glow-link:focus-visible .contact-mark {
+    filter:
+        drop-shadow(0 0 1px #ffc35acc)
+        drop-shadow(0 0 1px rgba(255, 210, 50, 0.5));
+}
+
+/* 우표끼리의 앞뒤 순서를 이 안에서 관리 */
+#projects .project-stamp {
+    isolation: isolate;
+    overflow: visible;
+}
+
+/* 뒤쪽 우표 */
+.stamp-back {
+    position: absolute;
+    inset: auto;
+    left: 0;
+    top: 0;
+
+    width: var(--back-width, 100%);
+    height: var(--back-height, 100%);
+    max-width: none;
+
+    object-fit: fill;
+    transform-origin: center;
+    transform:
+        translate(var(--back-x, 10%), var(--back-y, -8%))
+        rotate(var(--back-rotate, -5deg));
+
+    z-index: 0;
+}
+
+/* 대시보드가 뒤쪽 우표보다 위에 보이도록 */
+.project-stamp .stamp-window {
+    z-index: 1;
+}
+
+/* 앞쪽 우표틀을 가장 위에 */
+.project-stamp .stamp-frame {
+    z-index: 2;
+}
+
+#projects .project-stamp {
+    position: relative;
+
+    /* 앞뒤 우표 전체 이동 */
+    left: var(--stamp-x, 0px);
+    top: var(--stamp-y, 0px);
+
+    /* 앞뒤 우표 전체 회전 */
+    transform: rotate(var(--rotate, 0deg));
+}
+
+/* 뒤쪽 우표만 추가 이동·회전 */
+.project-stamp .stamp-back {
+    transform:
+        translate(var(--back-x, 35px), var(--back-y, -25px))
+        rotate(var(--back-rotate, -5deg));
+}
+
+.project-stamp .stamp-back {
+    width: var(--back-width, 100%);
+    height: var(--back-height, 100%);
+    max-width: none;
+    object-fit: fill;
+}
+
+/* 취미 및 관심사 제목 */
+.interests-heading {
+    margin: 500px 0 50px;
+
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+
+    border-bottom: none;
+
+}
+
+/* 이미지들을 감싸는 영역 */
+.interest-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px 16px;
+    padding: 0 8px;
+}
+
+/* 개별 이미지 */
+.interest-image {
+    width: var(--size, 80px);
+    height: var(--size, 80px);
+    object-fit: contain;
+    flex-shrink: 0;
+
+    transform:
+        translate(var(--x, 0px), var(--y, 0px))
+        rotate(var(--rotate, 0deg));
+}
+
+/* 두 줄을 세로로 배치 */
+.interest-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* 줄 사이 간격 */
+    width: 100%;
+}
+
+/* 이전에 추가한 줄 간격 초기화 */
+.interest-images + .interest-images {
+    margin-top: 0;
 }
 
